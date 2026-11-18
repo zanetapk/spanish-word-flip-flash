@@ -90,7 +90,7 @@ pipeline {
                         reportTitles: '',
                         useWrapperFileDirectory: true
                     ])
-                    junit studioRetention: 'ALL', testResults: 'reports-e2e/junit.xml'
+                    junit stdioRetention: 'ALL', testResults: 'reports-e2e/junit.xml'
                 }
             }
         }

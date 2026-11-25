@@ -79,5 +79,14 @@ e2e:
   container:
     image: mcr.microsoft.com/playwright:v1.54.2-jammy
     options: --user 1001
+  env:
+    E2E_BASE_URL: https://spanish-cards.netlify.app/
+  steps:
+      - uses: actions/checkout@v4
+      - name: Install deps
+        run: npm ci
+      - name: Run Playwright E2E
+        run: npx playwright test
+    
     
     

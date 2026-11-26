@@ -72,21 +72,21 @@ jobs:
       - name: Mock deployment
         run: echo 'Mock deployment was successful!'
 
-e2e:
-  name: E2E (Playwright)
-  runs-on: ubuntu-24.04
-  needs: deploy
-  container:
-    image: mcr.microsoft.com/playwright:v1.54.2-jammy
-    options: --user 1001
-  env:
-    E2E_BASE_URL: https://spanish-cards.netlify.app/
-  steps:
-      - uses: actions/checkout@v4
-      - name: Install deps
-        run: npm ci
-      - name: Run Playwright E2E
-        run: npx playwright test
+  e2e:
+    name: E2E (Playwright)
+    runs-on: ubuntu-24.04
+    needs: deploy
+    container:
+      image: mcr.microsoft.com/playwright:v1.54.2-jammy
+      options: --user 1001
+    env:
+      E2E_BASE_URL: https://spanish-cards.netlify.app/
+    steps:
+        - uses: actions/checkout@v4
+        - name: Install deps
+          run: npm ci
+        - name: Run Playwright E2E
+          run: npx playwright test
     
     
     
